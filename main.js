@@ -19,7 +19,9 @@ function generateGrid(gridSize = 16) {
             square.setAttribute('data-passCount', 0);
             square.addEventListener('mouseover', function () {
                 let passCount = Number(this.getAttribute('data-passCount'));
-                this.setAttribute('data-passCount', (passCount + 1));
+                if (passCount < 10) {
+                    this.setAttribute('data-passCount', (passCount + 1));
+                };
                 draw(this);
             });
         
@@ -29,11 +31,15 @@ function generateGrid(gridSize = 16) {
 };
 
 function draw(currentSquare) {
+    let passCount = Number(currentSquare.getAttribute('data-passCount'));
+    let max = 255 - (255 * (0.1 * passCount));
+
     currentSquare.style.backgroundColor = `rgb(
-        ${Math.floor(Math.random() * 255)},
-        ${Math.floor(Math.random() * 255)},
-        ${Math.floor(Math.random() * 255)}
+        ${Math.floor(Math.random() * max)},
+        ${Math.floor(Math.random() * max)},
+        ${Math.floor(Math.random() * max)}
     )`;
+    console.log(passCount);
 };
 
 const resolutionButton = document.querySelector('.set-resolution');
