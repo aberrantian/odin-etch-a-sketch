@@ -27,7 +27,7 @@ const resolutionButton = document.querySelector('.set-resolution');
 resolutionButton.addEventListener('click', setResolution);
 
 function setResolution(size = 16) {
-    let userInput = prompt('Enter desired resolution <=100');
+    let userInput = prompt('Enter desired resolution');
     if (userInput > 100) {
         userInput = 100;
     } else if (userInput < 2) {
