@@ -14,7 +14,11 @@ for (let i = 0; i < gridSize; i++) {
     for (let n = 0; n < gridSize; n++) {
         const column = document.createElement('div');
         column.classList.add('column');
+        column.addEventListener('mouseover', () => {
+            column.classList.toggle('hover');
+        })
     
         row.appendChild(column);
     };
 };
+
