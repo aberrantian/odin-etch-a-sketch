@@ -1,11 +1,8 @@
-const container = document.querySelector('.container');
-
-const grid = document.createElement('div');
-grid.classList.add('grid');
-
-let gridSize = 16;
-
 function generateGrid(gridSize = 16) {
+    const container = document.createElement('div');
+    container.classList.add('container');
+    document.querySelector('body').appendChild(container);
+
     for (let i = 0; i < gridSize; i++) {
         const row = document.createElement('div');
         row.classList.add('row');
@@ -17,7 +14,7 @@ function generateGrid(gridSize = 16) {
             column.classList.add('column');
             column.addEventListener('mouseover', () => {
                 column.classList.toggle('hover');
-            })
+            });
         
             row.appendChild(column);
         };
@@ -26,4 +23,12 @@ function generateGrid(gridSize = 16) {
 
 generateGrid();
 
+const resolutionButton = document.querySelector('.set-resolution');
+resolutionButton.addEventListener('click', setResolution);
 
+function setResolution(size = 16) {
+    let userInput = prompt('Enter desired resolution <=100');
+    const container = document.querySelector('.container');
+    container.remove();
+    generateGrid(userInput);
+}
