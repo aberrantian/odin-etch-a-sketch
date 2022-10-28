@@ -28,6 +28,12 @@ resolutionButton.addEventListener('click', setResolution);
 
 function setResolution(size = 16) {
     let userInput = prompt('Enter desired resolution <=100');
+    if (userInput > 100) {
+        userInput = 100;
+    } else if (userInput < 2) {
+        userInput = 2;
+    };
+
     const container = document.querySelector('.container');
     container.remove();
     generateGrid(userInput);
