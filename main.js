@@ -3,11 +3,15 @@ function generateGrid(gridSize = 16) {
     container.classList.add('container');
     document.querySelector('body').appendChild(container);
 
+    const grid = document.createElement('div');
+    grid.classList.add('grid');
+    container.appendChild(grid);
+
     for (let i = 0; i < gridSize; i++) {
         const row = document.createElement('div');
         row.classList.add('row');
         
-        container.appendChild(row);
+        grid.appendChild(row);
         
         for (let n = 0; n < gridSize; n++) {
             const square = document.createElement('div');
