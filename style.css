@@ -9,13 +9,7 @@ body {
     text-align: center;
 }
 
-.row {
-    display: flex;
-    justify-content: center;
-}
-
-.column {
-    display: inline;
+.square {
     background-color: grey;
     width: 32px;
     height: 32px;

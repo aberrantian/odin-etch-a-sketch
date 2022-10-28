@@ -10,13 +10,13 @@ function generateGrid(gridSize = 16) {
         container.appendChild(row);
         
         for (let n = 0; n < gridSize; n++) {
-            const column = document.createElement('div');
-            column.classList.add('column');
-            column.addEventListener('mouseover', () => {
-                column.classList.toggle('hover');
+            const square = document.createElement('div');
+            square.classList.add('square');
+            square.addEventListener('mouseover', () => {
+                square.classList.toggle('hover');
             });
         
-            row.appendChild(column);
+            row.appendChild(square);
         };
     };
 };
