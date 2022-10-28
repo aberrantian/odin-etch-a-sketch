@@ -45,8 +45,6 @@ function draw(currentSquare) {
 const resolutionButton = document.querySelector('.set-resolution');
 resolutionButton.addEventListener('click', setResolution);
 
-let userInput = 0;
-
 function setResolution(size = 16) {
     userInput = prompt('Enter desired resolution');
     if (userInput > 100) {
@@ -63,10 +61,8 @@ function setResolution(size = 16) {
 const clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', () => {
     const length = document.querySelectorAll('.row').length;
-
     const container = document.querySelector('.container');
     container.remove();
-
     generateGrid(length);
 });
 
