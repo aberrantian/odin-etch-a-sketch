@@ -30,8 +30,10 @@ generateGrid();
 const resolutionButton = document.querySelector('.set-resolution');
 resolutionButton.addEventListener('click', setResolution);
 
+let userInput = 0;
+
 function setResolution(size = 16) {
-    let userInput = prompt('Enter desired resolution');
+    userInput = prompt('Enter desired resolution');
     if (userInput > 100) {
         userInput = 100;
     } else if (userInput < 2) {
@@ -41,4 +43,14 @@ function setResolution(size = 16) {
     const container = document.querySelector('.container');
     container.remove();
     generateGrid(userInput);
-}
+};
+
+const clearButton = document.querySelector('.clear');
+clearButton.addEventListener('click', () => {
+    const length = document.querySelectorAll('.row').length;
+
+    const container = document.querySelector('.container');
+    container.remove();
+
+    generateGrid(length);
+});
