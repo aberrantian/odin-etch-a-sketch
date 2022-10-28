@@ -1,18 +1,17 @@
-body {
-    background-color: black;
-}
-
 * {
     margin: 0;
     padding: 0;
 }
 
-.container {
+body {
+    background-color: black;
     padding: 32px;
+    text-align: center;
 }
 
 .row {
     display: flex;
+    justify-content: center;
 }
 
 .column {
@@ -24,4 +23,17 @@ body {
 
 .hover {
     background-color: white;
+}
+
+.container {
+    margin-top: 32px;
+}
+
+button {
+    border-radius: 8px;
+    border: none;
+    padding: 4px 8px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
 }
