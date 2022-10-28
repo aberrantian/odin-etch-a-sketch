@@ -16,11 +16,11 @@ function generateGrid(gridSize = 16) {
         for (let n = 0; n < gridSize; n++) {
             const square = document.createElement('div');
             square.classList.add('square');
-            square.addEventListener('mouseover', () => {
-                square.style.backgroundColor = `rgb(
-                    ${Math.floor(Math.random() * 255)},
-                    ${Math.floor(Math.random() * 255)},
-                    ${Math.floor(Math.random() * 255)})`;
+            square.setAttribute('data-passCount', 0);
+            square.addEventListener('mouseover', function () {
+                let passCount = Number(this.getAttribute('data-passCount'));
+                this.setAttribute('data-passCount', (passCount + 1));
+                draw(this);
             });
         
             row.appendChild(square);
@@ -28,7 +28,13 @@ function generateGrid(gridSize = 16) {
     };
 };
 
-generateGrid();
+function draw(currentSquare) {
+    currentSquare.style.backgroundColor = `rgb(
+        ${Math.floor(Math.random() * 255)},
+        ${Math.floor(Math.random() * 255)},
+        ${Math.floor(Math.random() * 255)}
+    )`;
+};
 
 const resolutionButton = document.querySelector('.set-resolution');
 resolutionButton.addEventListener('click', setResolution);
@@ -57,3 +63,5 @@ clearButton.addEventListener('click', () => {
 
     generateGrid(length);
 });
+
+generateGrid();
