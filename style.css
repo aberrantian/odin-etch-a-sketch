@@ -22,13 +22,9 @@ body {
 }
 
 .square {
-    background-color: grey;
+    background-color: white;
     width: 100%;
     aspect-ratio: 1/1;
-}
-
-.hover {
-    background-color: white;
 }
 
 button {

@@ -17,7 +17,10 @@ function generateGrid(gridSize = 16) {
             const square = document.createElement('div');
             square.classList.add('square');
             square.addEventListener('mouseover', () => {
-                square.classList.toggle('hover');
+                square.style.backgroundColor = `rgb(
+                    ${Math.floor(Math.random() * 255)},
+                    ${Math.floor(Math.random() * 255)},
+                    ${Math.floor(Math.random() * 255)})`;
             });
         
             row.appendChild(square);
